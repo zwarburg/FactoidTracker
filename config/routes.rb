@@ -1,4 +1,7 @@
 QaApp::Application.routes.draw do
+  resources :factoids
+
+
   get "home/index"
 
   # The priority is based upon order of creation:

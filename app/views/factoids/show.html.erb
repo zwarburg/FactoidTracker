@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @factoid.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @factoid.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_factoid_path(@factoid) %> |
+<%= link_to 'Back', factoids_path %>

@@ -18,7 +18,7 @@ class FactoidsControllerTest < ActionController::TestCase
 
   test "should create factoid" do
     assert_difference('Factoid.count') do
-      post :create, factoid: { description: @factoid.description, title: @factoid.title }
+      post :create, factoid: { description: @factoid.description, name: @factoid.name, title: @factoid.title }
     end
 
     assert_redirected_to factoid_path(assigns(:factoid))
@@ -35,7 +35,7 @@ class FactoidsControllerTest < ActionController::TestCase
   end
 
   test "should update factoid" do
-    put :update, id: @factoid, factoid: { description: @factoid.description, title: @factoid.title }
+    put :update, id: @factoid, factoid: { description: @factoid.description, name: @factoid.name, title: @factoid.title }
     assert_redirected_to factoid_path(assigns(:factoid))
   end
 

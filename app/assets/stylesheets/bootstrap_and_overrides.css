@@ -20,7 +20,7 @@ ul {
 
 .test
 {
-    @extend text-error
+    @extend .text-error;
 }
 
 /*.field_with_errors {*/

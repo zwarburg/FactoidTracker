@@ -1,5 +1,9 @@
-<%- model_class = Factoid -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => [:'helpers.titles.new', 'New %{model}'], :model => model_class.model_name.human.titleize %></h1>
+<div class="block-panel">
+  <div class="block-panel__body">
+    <%- model_class = Factoid -%>
+    <div class="block-panel__header">
+      <h3 class="block-panel__title"><%=t '.title', :default => [:'helpers.titles.new', 'New %{model}'], :model => model_class.model_name.human.titleize %></h3>
+    </div>
+    <%= render :partial => 'form' %>
+  </div>
 </div>
-<%= render :partial => 'form' %>

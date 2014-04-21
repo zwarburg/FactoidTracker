@@ -19,12 +19,21 @@ ul {
 }
 
 .field_with_errors {
-    @extend .control-group;
-    @extend .error;
+  background-color: #f2dede;
 }
 
 form{
   margin:0 auto
+}
+
+.factoids{
+  width: 80%;
+}
+
+.form-actions {
+  background-color: inherit;
+  border-top-color: none;
+  border-top: 0px;
 }
 
 //For the buttons in the flash messages

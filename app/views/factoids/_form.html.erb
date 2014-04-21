@@ -12,25 +12,25 @@
   <div class="control-group">
     <%= f.label :title, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :title, :class => 'text_field' %>
+      <%= f.text_field :title, :class => 'text_field factoids' %>
     </div>
   </div>
   <div class="control-group">
     <%= f.label :description, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_area :description, :class => 'text_area', :rows => 4 %>
+      <%= f.text_area :description, :class => 'text_area factoids', :rows => 4 %>
     </div>
   </div>
   <div class="control-group">
     <%= f.label :name, :class => 'control-label' %>
     <div class="controls">
-      <%= f.select :name, Factoid::NAMES, include_blank: 'None' %>
+      <%= f.select :name, Factoid::NAMES, include_blank: 'None'%>
     </div>
   </div>
   <div class="control-group">
     <%= f.label :tags, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :tag_list %>
+      <%= f.text_field :tag_list, :class => "factoids" %>
     </div>
   </div>
 

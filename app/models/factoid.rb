@@ -1,8 +1,10 @@
 class Factoid < ActiveRecord::Base
-  attr_accessible :description, :name, :title
+  attr_accessible :description, :name, :title, :tag_list
 
   validates_presence_of :description, :name, :title
   validates_uniqueness_of :title
+
+  acts_as_taggable_on :tags
 
 
   NAMES = "Angela", "Geordie", "Jared", "Jennifer", "Kevin", "Matthew", "Oscar", "Owen", "Regina", "Todd", "Vaibhavi", "Zack"

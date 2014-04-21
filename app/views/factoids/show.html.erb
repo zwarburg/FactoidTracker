@@ -10,6 +10,11 @@
   <dd><%= @factoid.description %></dd>
   <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
   <dd><%= @factoid.name %></dd>
+  <% @factoid.tags.any? %>
+  <dt><strong><%= model_class.human_attribute_name(:tags) %>:</strong></dt>
+  <% @factoid.tags.each do |tag| %>
+      <%= tag.name %>
+  <% end %>
 </dl>
 
 <div class="form-actions">

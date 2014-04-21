@@ -25,6 +25,12 @@
       <%= f.select :name, Factoid::NAMES, include_blank: 'None' %>
     </div>
   </div>
+  <div class="control-group">
+    <%= f.label :tags, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :tag_list %>
+    </div>
+  </div>
 
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>

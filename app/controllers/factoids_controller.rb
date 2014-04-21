@@ -82,4 +82,13 @@ class FactoidsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def tagged
+    if params[:tag].present?
+      @factoids = Factoid.tagged_with(params[:tag])
+    else
+      @factoids = Factoid.postall
+    end
+  end
+
 end

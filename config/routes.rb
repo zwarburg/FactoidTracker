@@ -4,6 +4,8 @@ QaApp::Application.routes.draw do
 
   get "home/index"
 
+  match 'tagged' => 'factoids#tagged', :as => 'tagged'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

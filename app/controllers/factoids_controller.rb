@@ -78,7 +78,7 @@ class FactoidsController < ApplicationController
     @factoid.destroy
 
     respond_to do |format|
-      format.html { redirect_to factoids_url }
+      format.html { redirect_to factoids_url, notice: 'Factoid was successfully deleted.'  }
       format.json { head :no_content }
     end
   end

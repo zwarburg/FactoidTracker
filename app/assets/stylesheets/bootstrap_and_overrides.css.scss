@@ -27,6 +27,8 @@ form{
   margin:0 auto
 }
 
-//a.btn:visited {
-//  color: #ffffff;
-//}
+//For the buttons in the flash messages
+button.close {
+  padding-top: 5px;
+  padding-right: 8px;
+}

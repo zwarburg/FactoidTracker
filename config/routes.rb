@@ -6,6 +6,8 @@ QaApp::Application.routes.draw do
 
   match 'tagged' => 'factoids#tagged', :as => 'tagged'
 
+  get 'tags/:tag', to: 'factoids#index', as: :tag
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

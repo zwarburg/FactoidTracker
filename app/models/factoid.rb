@@ -16,4 +16,12 @@ class Factoid < ActiveRecord::Base
     (column_names - UNRANSACKABLE_ATTRIBUTES) + _ransackers.keys
   end
 
+  def self.search(search)
+    if search
+      find(:all, :conditions => ['title LIKE :search OR description LIKE :search', {:search => "%#{search}%"}])
+    else
+      find(:all)
+    end
+  end
+
 end

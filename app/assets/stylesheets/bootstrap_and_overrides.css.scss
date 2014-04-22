@@ -41,3 +41,19 @@ button.close {
   padding-top: 5px;
   padding-right: 8px;
 }
+
+
+.table-colorized {
+  tbody {
+    > tr:nth-child(odd) > td,
+    > tr:nth-child(odd) > th {
+      background-color: #bcfffd;
+    }
+  }
+  tbody {
+    > tr:nth-child(even) > td,
+    > tr:nth-child(even) > th {
+      background-color: #cbcdca;
+    }
+  }
+}

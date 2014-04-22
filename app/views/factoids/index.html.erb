@@ -5,6 +5,10 @@
       <h2 class="block-panel__title"><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h2>
     </div>
 
+    <%= form_tag factoids_path, method: :get, :class => "form-inline" do %>
+        <%= text_field_tag :search, params[:search] %>
+        <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
+    <% end %>
 
     <table class="table table-colorized">
       <thead>

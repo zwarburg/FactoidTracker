@@ -14,7 +14,7 @@
           <dt><strong><%= model_class.human_attribute_name(:tags) %>:</strong></dt>
           <dd>
             <% @factoid.tags.each do |tag| %>
-              <%= tag.name %>
+                <li class="label"><%= tag.name %></li>
             <% end %>
           </dd>
       <% end %>

@@ -18,8 +18,9 @@
         <tr>
           <th><%= sort_link @search, :title, model_class.human_attribute_name(:title) %></th>
           <th><%= sort_link @search, :description, model_class.human_attribute_name(:description) %></th>
+          <th><%= sort_link @search, :tags, model_class.human_attribute_name(:tags) %></th>
           <th><%= sort_link @search, :name, model_class.human_attribute_name(:name) %></th>
-          <th><%= sort_link @search, :created_at, model_class.human_attribute_name(:created_at) %></th>
+          <th nowrap="nowrap"><%= sort_link @search, :created_at, model_class.human_attribute_name(:created_at) %></th>
           <th><%=t '.actions', :default => t("helpers.actions") %></th>
         </tr>
       </thead>
@@ -28,16 +29,18 @@
           <tr>
             <td><%= link_to factoid.title, factoid_path(factoid) %></td>
             <td><%= truncate(factoid.description, :length =>100) %></td>
+            <td><% factoid.tags.each do |tag| %>
+                  <li class="label"><%= tag.name %></li>
+              <% end %></td>
             <td><%= factoid.name %></td>
-            <td><%= l factoid.created_at, format: :short %></td>
-            <td>
-              <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                          edit_factoid_path(factoid), :class => 'btn btn-mini' %>
-              <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+            <td nowrap="nowrap"><%= l factoid.created_at, format: :short %></td>
+            <td nowrap="nowrap">
+              <!--<%= link_to t('.edit', :default => t("helpers.links.edit")), edit_factoid_path(factoid), :class => 'btn icon-pencil' %>-->
+              <%= link_to '<i class="btn btn-warning icon-pencil"></i>'.html_safe, edit_factoid_path(factoid) %>
+              <%= link_to '<i class="btn btn-danger icon-remove"></i>'.html_safe,
                           factoid_path(factoid),
                           :method => :delete,
-                          :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                          :class => 'btn btn-mini btn-danger' %>
+                          :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }%>
             </td>
           </tr>
         <% end %>

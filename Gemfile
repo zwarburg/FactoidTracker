@@ -23,6 +23,7 @@ group :assets do
   gem "twitter-bootstrap-rails"
 end
 
+gem 'test-unit'
 gem 'jquery-rails'
 gem 'acts-as-taggable-on', '~> 2.3.1'
 

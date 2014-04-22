@@ -5,22 +5,15 @@
       <h2 class="block-panel__title"><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h2>
     </div>
 
-    <%= search_form_for @search do |f| %>
-        <%= f.condition_fields do |c| %>
-            <%= render "condition_fields", f: c%>
-        <% end %>
-        <p><%= link_to_add_fields "Add Conditions", f, :condition %>
-        <div class="actions"><%= f.submit "Search", :class => 'btn btn-primary' %></div>
-    <% end %>
 
     <table class="table table-colorized">
       <thead>
         <tr>
-          <th><%= sort_link @search, :title, model_class.human_attribute_name(:title) %></th>
-          <th><%= sort_link @search, :description, model_class.human_attribute_name(:description) %></th>
-          <th><%= sort_link @search, :tags, model_class.human_attribute_name(:tags) %></th>
-          <th><%= sort_link @search, :name, model_class.human_attribute_name(:name) %></th>
-          <th nowrap="nowrap"><%= sort_link @search, :created_at, model_class.human_attribute_name(:created_at) %></th>
+          <th><%= model_class.human_attribute_name(:title) %></th>
+          <th><%= model_class.human_attribute_name(:description) %></th>
+          <th><%= model_class.human_attribute_name(:tags) %></th>
+          <th><%= model_class.human_attribute_name(:name) %></th>
+          <th nowrap="nowrap"><%= model_class.human_attribute_name(:created_at) %></th>
           <th><%=t '.actions', :default => t("helpers.actions") %></th>
         </tr>
       </thead>

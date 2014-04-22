@@ -2,9 +2,7 @@ class FactoidsController < ApplicationController
   # GET /factoids
   # GET /factoids.json
   def index
-    @search = Factoid.search(params[:q])
-    @factoids = @search.result
-    @search.build_condition
+    @factoids = Factoid.all
 
     respond_to do |format|
       format.html # index.html.erb

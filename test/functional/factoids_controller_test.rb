@@ -18,7 +18,7 @@ class FactoidsControllerTest < ActionController::TestCase
 
   test "should create factoid" do
     assert_difference('Factoid.count') do
-      post :create, factoid: { description: @factoid.description, name: @factoid.name, title: @factoid.title }
+      post :create, factoid: { description: "Description", name: "Zack", title: "My Factoid" }
     end
 
     assert_redirected_to factoid_path(assigns(:factoid))

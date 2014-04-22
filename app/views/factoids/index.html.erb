@@ -27,12 +27,11 @@
             <td><%= link_to factoid.title, factoid_path(factoid) %></td>
             <td><%= truncate(factoid.description, :length =>100) %></td>
             <td><% factoid.tags.each do |tag| %>
-                  <li class="label"><%= tag.name %></li>
+                  <%= link_to tag.name, tag_path(tag.name), :class => "btn btn-info btn-mini btn-index" %>
               <% end %></td>
             <td><%= factoid.name %></td>
             <td nowrap="nowrap"><%= l factoid.created_at, format: :short %></td>
             <td nowrap="nowrap">
-              <!--<%= link_to t('.edit', :default => t("helpers.links.edit")), edit_factoid_path(factoid), :class => 'btn icon-pencil' %>-->
               <%= link_to '<i class="btn btn-warning icon-pencil"></i>'.html_safe, edit_factoid_path(factoid) %>
               <%= link_to '<i class="btn btn-danger icon-remove"></i>'.html_safe,
                           factoid_path(factoid),

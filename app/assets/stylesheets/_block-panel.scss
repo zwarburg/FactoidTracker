@@ -3,6 +3,7 @@
   border: 2px solid #F1F2F3;
   border-radius: 3em;
   margin-bottom: 1em;
+  padding: 2em;
 }
 
 .block-panel--dark {
@@ -33,20 +34,4 @@
 
 .block-panel__body {
   margin: 1em;
-}
-
-@media print {
-  .block-panel {
-    background-color: transparent !important;
-    border-color: transparent !important;
-    margin-bottom: 0 !important;
-  }
-  
-  .block-panel__header {
-    margin: 0 0 1em 0;
-  }
-
-  .block-panel__body {
-    margin: 1em 0 1em 0;
-  }
 }

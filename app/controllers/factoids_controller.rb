@@ -1,11 +1,14 @@
 class FactoidsController < ApplicationController
+  helper_method :sort_column, :sort_direction
+  before_filter :authenticate_user!
+
   # GET /factoids
   # GET /factoids.json
   def index
     if params[:tag]
-      @factoids = Factoid.tagged_with(params[:tag])
+      @factoids = Factoid.tagged_with(params[:tag]).order(sort_column + ' ' + sort_direction).paginate(:per_page => 15, :page => params[:page])
     else
-      @factoids = Factoid.search(params[:search])
+      @factoids = Factoid.search(params[:search]).order(sort_column + ' ' + sort_direction).paginate(:per_page => 15, :page => params[:page])
     end
 
     respond_to do |format|
@@ -29,6 +32,10 @@ class FactoidsController < ApplicationController
   # GET /factoids/new.json
   def new
     @factoid = Factoid.new
+    @tags = []
+    Tag.all.each do |t|
+      @tags.append(t.name)
+    end
 
     respond_to do |format|
       format.html # new.html.erb
@@ -91,6 +98,15 @@ class FactoidsController < ApplicationController
     else
       @factoids = Factoid.postall
     end
+  end
+
+  private
+  def sort_column
+    params[:sort] || "created_at"
+  end
+
+  def sort_direction
+    params[:direction] || "desc"
   end
 
 end

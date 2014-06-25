@@ -1,36 +1,38 @@
-<div class="block-panel">
-  <div class="block-panel__body">
-    <%- model_class = Factoid -%>
-    <div class="block-panel__header">
-      <h2 class="block-panel__title"><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h2>
+<% @page_title = "Factoids" %>
+<%= form_tag factoids_path, method: :get, :class => "form-inline" do %>
+    <%= hidden_field_tag :direction, params[:direction] %>
+    <%= hidden_field_tag :sort, params[:sort] %>
+    <p>
+        <%= text_field_tag :search, params[:search], :autofocus => true %>
+        <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
+        <%= link_to "Clear Filters",factoids_path, :class => 'btn btn-default' %>
+    </p>
+<% end %>
+<% if (@factoids.empty?) %>
+    <div class="alert blank-search">
+       <strong>Sorry!</strong> No factoids matched that search. Please <%= link_to "try again",factoids_path %>.
     </div>
 
-    <%= form_tag factoids_path, method: :get, :class => "form-inline" do %>
-        <%= text_field_tag :search, params[:search] %>
-        <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
-    <% end %>
-
+<%else %>
     <table class="table table-colorized">
       <thead>
         <tr>
-          <th><%= model_class.human_attribute_name(:title) %></th>
-          <th><%= model_class.human_attribute_name(:description) %></th>
-          <th><%= model_class.human_attribute_name(:tags) %></th>
-          <th><%= model_class.human_attribute_name(:name) %></th>
-          <th nowrap="nowrap"><%= model_class.human_attribute_name(:created_at) %></th>
-          <th><%=t '.actions', :default => t("helpers.actions") %></th>
+          <th width="40%"><%= sortable "title" %></th>
+          <th width="30%"><%= "Tags" %></th>
+          <th width="10%"><%= sortable "name" %></th>
+          <th width="10%" nowrap="nowrap"><%= sortable "created_at" %></th>
+          <th width="10%"><%=t '.actions', :default => t("helpers.actions") %></th>
         </tr>
       </thead>
       <tbody>
         <% @factoids.each do |factoid| %>
           <tr>
-            <td><%= link_to factoid.title, factoid_path(factoid) %></td>
-            <td><%= truncate(factoid.description, :length =>100) %></td>
+            <td ><%= link_to factoid.title, factoid_path(factoid) %></td>
             <td><% factoid.tags.each do |tag| %>
                   <%= link_to tag.name, tag_path(tag.name), :class => "btn btn-info btn-mini btn-index" %>
               <% end %></td>
-            <td><%= factoid.name %></td>
-            <td nowrap="nowrap"><%= l factoid.created_at, format: :short %></td>
+            <td><%= link_to factoid.name, :controller => "factoids", :action => "index", :search => factoid.name %></td>
+            <td nowrap="nowrap"><%= format_datetime(factoid.created_at) %></td>
             <td nowrap="nowrap">
               <%= link_to '<i class="btn btn-warning icon-pencil"></i>'.html_safe, edit_factoid_path(factoid) %>
               <%= link_to '<i class="btn btn-danger icon-remove"></i>'.html_safe,
@@ -42,9 +44,8 @@
         <% end %>
       </tbody>
     </table>
-
-    <%= link_to t('.new', :default => t("helpers.links.new")),
-                new_factoid_path,
-                :class => 'btn btn-success' %>
-  </div>
+<% end %>
+<div class="pagination">
+    <%= will_paginate @factoids %>
 </div>
+<%= link_to "Create new factoid", new_factoid_path, :class => 'btn btn-success' %>

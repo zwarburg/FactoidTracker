@@ -1,0 +1,20 @@
+tagging_one:
+  tag_id: <%= ActiveRecord::Fixtures.identify(:cashier) %>
+  taggable_id: <%= ActiveRecord::Fixtures.identify(:factoid_one) %>
+  taggable_type: Factoid
+  context: tags
+tagging_two:
+  tag_id: <%= ActiveRecord::Fixtures.identify(:property) %>
+  taggable_id: <%= ActiveRecord::Fixtures.identify(:factoid_one) %>
+  taggable_type: Factoid
+  context: tags
+tagging_three:
+  tag_id: <%= ActiveRecord::Fixtures.identify(:reports) %>
+  taggable_id: <%= ActiveRecord::Fixtures.identify(:factoid_two) %>
+  taggable_type: Factoid
+  context: tags
+tagging_three:
+  tag_id: <%= ActiveRecord::Fixtures.identify(:cashier) %>
+  taggable_id: <%= ActiveRecord::Fixtures.identify(:factoid_three) %>
+  taggable_type: Factoid
+  context: tags

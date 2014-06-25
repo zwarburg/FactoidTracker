@@ -1,0 +1,9 @@
+@import "twitter-bootstrap-static/bootstrap";
+
+.previous_page, .next_page, div.pagination a, div.pagination em{
+  @extend .btn;
+}
+
+div.pagination em{
+  @extend .disabled
+}

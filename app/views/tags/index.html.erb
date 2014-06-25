@@ -1,0 +1,18 @@
+<% @page_title = "Tags" %>
+<table class="table table-colorized tags-table">
+  <thead>
+  <tr>
+    <!-- Todo: make this sortable! -->
+    <th width="40%"><%= sortable "name" , "Tag Name" %></th>
+    <th width="30%"><%= sortable "count" , "Number of Occurrences" %></th>
+  </tr>
+  </thead>
+  <tbody>
+  <%@tags.each do |tag| %>
+      <tr>
+        <td><%= link_to tag.name, tag_path(tag.name) %></td>
+        <td><%= tag.count %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>

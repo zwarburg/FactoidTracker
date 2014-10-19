@@ -1,8 +1,17 @@
 require 'test_helper'
 
 class FactoidsControllerTest < ActionController::TestCase
+  include Devise::TestHelpers
   def setup
     @factoid = factoids(:one)
+    @user = User.create!(
+        :email => 'setup@appfolio.com',
+        :password => 'somethingelse',
+        :password_confirmation => 'somethingelse',
+        :first_name => "Joe",
+        :last_name => "Schmoe",
+    )
+    sign_in @user
   end
 
   def test_index
@@ -32,10 +41,10 @@ class FactoidsControllerTest < ActionController::TestCase
   def test_create__fails_without_description
     f = Factoid.new(:title => "Title", :name => "Zack")
     assert_false f.save
-    end
+  end
 
   def test_create__fails_without_name
-    f = Factoid.new(:title => "Title", :description => "My Awesome Factoid", :name => "Zack")
+    f = Factoid.new(:title => "Title", :description => "My Awesome Factoid")
     assert_false f.save
   end
 

@@ -1,0 +1,23 @@
+<li class="dropdown">
+  <% if user_signed_in? %>
+      <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+        Logged in as <strong><%= full_name(current_user) %> </strong><strong class="caret"></strong>
+      </a>
+      <div nowrap="nowrap" class="dropdown-menu" style="padding: 15px;">
+        <%= link_to "Settings", edit_user_registration_path, :class => 'btn btn-warning'  %>
+        <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'btn btn-primary'  %>
+      </div>
+  <%else %>
+      <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+        Sign In <strong class="caret"></strong>
+      </a>
+      <div class="dropdown-menu" style="padding: 15px;">
+        <%= form_for(:user, :url => session_path(:user)) do |f| %>
+            <%= f.text_field :email %>
+            <%= f.password_field :password %>
+            <%= f.submit 'Sign in', :class => "btn btn-primary" %>
+            <%= link_to "Reset password?", new_password_path(:user) %>
+        <% end %>
+      </div>
+  <% end %>
+</li>

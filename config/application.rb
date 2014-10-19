@@ -58,5 +58,9 @@ module QaApp
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    #Settings for acts_as_taggable_on gem
+    ActsAsTaggableOn.force_lowercase = true
+
   end
 end

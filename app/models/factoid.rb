@@ -1,5 +1,24 @@
+# == Schema Information
+#
+# Table name: factoids
+#
+#  id           :integer(4)      not null, primary key
+#  title        :string(255)
+#  description  :text
+#  name         :string(255)
+#  created_at   :datetime        not null
+#  updated_at   :datetime        not null
+#  pivotal_link :string(255)
+#
+# Associations:
+#  base_tags    :has_many        [ActsAsTaggableOn::Tag(tag_id)] 
+#  tag_taggings :has_many        [ActsAsTaggableOn::Tagging(taggable_id)] 
+#  taggings     :has_many        [ActsAsTaggableOn::Tagging(taggable_id)] 
+#  tags         :has_many        [ActsAsTaggableOn::Tag(tag_id)] 
+#
+
 class Factoid < ActiveRecord::Base
-  attr_accessible :description, :name, :title, :tag_list
+  attr_accessible :description, :name, :title, :tag_list, :pivotal_link
 
   validates_presence_of :description, :name, :title
   validates_uniqueness_of :title
@@ -9,18 +28,11 @@ class Factoid < ActiveRecord::Base
 
   NAMES = "Angela", "Geordie", "Jared", "Jennifer", "Kevin", "Matthew", "Oscar", "Owen", "Regina", "Todd", "Vaibhavi", "Zack"
 
-
-  UNRANSACKABLE_ATTRIBUTES = ["id", "updated_at"]
-
-  def self.ransackable_attributes auth_object = nil
-    (column_names - UNRANSACKABLE_ATTRIBUTES) + _ransackers.keys
-  end
-
   def self.search(search)
     if search
-      find(:all, :conditions => ['title LIKE :search OR description LIKE :search', {:search => "%#{search}%"}])
+      where('title LIKE :search OR description LIKE :search OR name LIKE :search', {:search => "%#{search}%"})
     else
-      find(:all)
+      scoped
     end
   end
 

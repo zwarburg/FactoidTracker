@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>QaApp</title>
+  <title><%= @page_title ? "#{@page_title} - QA App" : "QA App" %></title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -9,8 +9,15 @@
 <body>
 <%= render :partial => 'layouts/navbar' %>
     <div class="container">
-    <%= render 'layouts/messages' %>
-        <%= yield %>
+      <%= render 'layouts/messages' %>
+      <div class="block-panel">
+        <div class="block-panel__body">
+          <div class="block-panel__header">
+            <h2 class="block-panel__title"><%= @page_title %></h2>
+          </div>
+          <%= yield %>
+        </div>
+      </div>
     </div>
 </body>
 </html>

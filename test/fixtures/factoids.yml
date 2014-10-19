@@ -29,13 +29,3 @@ factoid_two:
   description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac lectus eget leo fringilla placerat. Morbi et elit magna. Maecenas tincidunt risus sed urna consectetur vehicula. Integer pharetra tortor vitae vestibulum tempor. Fusce a tempus mi, at consequat risus.
   name: Zack
   pivotal_link: https://www.pivotaltracker.com/story/show/70132068
-factoid_three:
-  title: Factoid number 3
-  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac lectus eget leo fringilla placerat. Morbi et elit magna. Maecenas tincidunt risus sed urna consectetur vehicula. Integer pharetra tortor vitae vestibulum tempor. Fusce a tempus mi, at consequat risus.
-  name: Owen
-  pivotal_link: https://www.pivotaltracker.com/story/show/70132040
-factoid_four:
-  title: A fourth factoid
-  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac lectus eget leo fringilla placerat. Morbi et elit magna. Maecenas tincidunt risus sed urna consectetur vehicula. Integer pharetra tortor vitae vestibulum tempor. Fusce a tempus mi, at consequat risus.
-  name: Kevin
-  pivotal_link: https://www.pivotaltracker.com/story/show/70132040

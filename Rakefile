@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-QaApp::Application.load_tasks
+FactoidTracker::Application.load_tasks

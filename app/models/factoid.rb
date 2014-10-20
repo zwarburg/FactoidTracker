@@ -2,19 +2,13 @@
 #
 # Table name: factoids
 #
-#  id           :integer(4)      not null, primary key
+#  id           :integer          not null, primary key
 #  title        :string(255)
 #  description  :text
 #  name         :string(255)
-#  created_at   :datetime        not null
-#  updated_at   :datetime        not null
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
 #  pivotal_link :string(255)
-#
-# Associations:
-#  base_tags    :has_many        [ActsAsTaggableOn::Tag(tag_id)] 
-#  tag_taggings :has_many        [ActsAsTaggableOn::Tagging(taggable_id)] 
-#  taggings     :has_many        [ActsAsTaggableOn::Tagging(taggable_id)] 
-#  tags         :has_many        [ActsAsTaggableOn::Tag(tag_id)] 
 #
 
 class Factoid < ActiveRecord::Base
@@ -26,7 +20,8 @@ class Factoid < ActiveRecord::Base
   acts_as_taggable_on :tags
 
 
-  NAMES = "Angela", "Geordie", "Jared", "Jennifer", "Kevin", "Matthew", "Oscar", "Owen", "Regina", "Todd", "Vaibhavi", "Zack"
+  #TODO: Refactor this to inherit the current user name
+  NAMES = "Testing", "John Smith"
 
   def self.search(search)
     if search

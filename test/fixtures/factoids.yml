@@ -2,19 +2,13 @@
 #
 # Table name: factoids
 #
-#  id           :integer(4)      not null, primary key
+#  id           :integer          not null, primary key
 #  title        :string(255)
 #  description  :text
 #  name         :string(255)
-#  created_at   :datetime        not null
-#  updated_at   :datetime        not null
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
 #  pivotal_link :string(255)
-#
-# Associations:
-#  base_tags    :has_many        [ActsAsTaggableOn::Tag(tag_id)] 
-#  tag_taggings :has_many        [ActsAsTaggableOn::Tagging(taggable_id)] 
-#  taggings     :has_many        [ActsAsTaggableOn::Tagging(taggable_id)] 
-#  tags         :has_many        [ActsAsTaggableOn::Tag(tag_id)] 
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
@@ -29,13 +23,3 @@ factoid_two:
   description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac lectus eget leo fringilla placerat. Morbi et elit magna. Maecenas tincidunt risus sed urna consectetur vehicula. Integer pharetra tortor vitae vestibulum tempor. Fusce a tempus mi, at consequat risus.
   name: Zack
   pivotal_link: https://www.pivotaltracker.com/story/show/70132068
-factoid_three:
-  title: Factoid number 3
-  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac lectus eget leo fringilla placerat. Morbi et elit magna. Maecenas tincidunt risus sed urna consectetur vehicula. Integer pharetra tortor vitae vestibulum tempor. Fusce a tempus mi, at consequat risus.
-  name: Owen
-  pivotal_link: https://www.pivotaltracker.com/story/show/70132040
-factoid_four:
-  title: A fourth factoid
-  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac lectus eget leo fringilla placerat. Morbi et elit magna. Maecenas tincidunt risus sed urna consectetur vehicula. Integer pharetra tortor vitae vestibulum tempor. Fusce a tempus mi, at consequat risus.
-  name: Kevin
-  pivotal_link: https://www.pivotaltracker.com/story/show/70132040

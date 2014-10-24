@@ -34,5 +34,5 @@
 setup:
   first_name: "Setup"
   last_name: "User"
-  email: "setup@factoird.com"
+  email: "setup@factoid.com"
   encrypted_password: <%= User.new.send(:password_digest, 'password123') %>

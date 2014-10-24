@@ -13,3 +13,5 @@ What is a factoid you may ask? Well the dictionary defines a factoid as being "*
 ##Technologies/Gems 
 * [twitter-bootstrap-rails](https://github.com/seyhunak/twitter-bootstrap-rails)
 * [annotate_models](https://github.com/ctran/annotate_models)
+* [factory_girl](https://github.com/thoughtbot/factory_girl)
+* [faker](https://github.com/stympy/faker)

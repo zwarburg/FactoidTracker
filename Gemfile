@@ -2,6 +2,12 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.17'
 gem 'pg'
+gem 'jquery-rails'
+gem 'acts-as-taggable-on', '~> 2.3.1'
+gem 'devise'
+gem 'will_paginate'
+gem 'select2-rails'
+gem 'annotate', '~> 2.6.5'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -14,10 +20,9 @@ group :assets do
   gem "twitter-bootstrap-rails"
 end
 
-gem 'test-unit'
-gem 'jquery-rails'
-gem 'acts-as-taggable-on', '~> 2.3.1'
-gem 'devise'
-gem 'will_paginate'
-gem 'select2-rails'
-gem 'annotate', '~> 2.6.5'
+group :test, :development do
+  gem 'test-unit'
+  gem 'rspec-rails', '~> 3.0.0'
+  gem 'factory_girl_rails'
+  gem 'faker'
+end

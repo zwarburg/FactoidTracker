@@ -24,16 +24,11 @@
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
 
-class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :token_authenticatable, :confirmable,
-  # :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :recoverable, :rememberable, :trackable, :validatable
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name
-
-  validates :first_name, :last_name, :presence => true
-
-  def full_name
-    first_name + ' ' + last_name
+FactoryGirl.define do
+  factory :user do
+    first_name Faker::Name.first_name
+    last_name Faker::Name.last_name
+    password 'password123'
+    email Faker::Internet.email
   end
 end

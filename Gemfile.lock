@@ -51,8 +51,16 @@ GEM
       orm_adapter (~> 0.1)
       railties (>= 3.2.6, < 5)
       warden (~> 1.2.3)
+    diff-lcs (1.2.5)
     erubis (2.7.0)
     execjs (2.0.2)
+    factory_girl (4.4.0)
+      activesupport (>= 3.0.0)
+    factory_girl_rails (4.4.1)
+      factory_girl (~> 4.4.0)
+      railties (>= 3.0.0)
+    faker (1.4.3)
+      i18n (~> 0.5)
     hike (1.2.3)
     i18n (0.6.9)
     journey (1.0.4)
@@ -100,6 +108,22 @@ GEM
     rdoc (3.12.2)
       json (~> 1.4)
     ref (1.0.5)
+    rspec-core (3.0.4)
+      rspec-support (~> 3.0.0)
+    rspec-expectations (3.0.4)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.0.0)
+    rspec-mocks (3.0.4)
+      rspec-support (~> 3.0.0)
+    rspec-rails (3.0.2)
+      actionpack (>= 3.0)
+      activesupport (>= 3.0)
+      railties (>= 3.0)
+      rspec-core (~> 3.0.0)
+      rspec-expectations (~> 3.0.0)
+      rspec-mocks (~> 3.0.0)
+      rspec-support (~> 3.0.0)
+    rspec-support (3.0.4)
     sass (3.3.5)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -142,10 +166,13 @@ DEPENDENCIES
   annotate (~> 2.6.5)
   coffee-rails (~> 3.2.1)
   devise
+  factory_girl_rails
+  faker
   jquery-rails
   less-rails
   pg
   rails (= 3.2.17)
+  rspec-rails (~> 3.0.0)
   sass-rails (~> 3.2.3)
   select2-rails
   test-unit

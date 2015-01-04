@@ -20,7 +20,7 @@ class Factoid < ActiveRecord::Base
   acts_as_taggable_on :tags
 
 
-  #TODO: Refactor this to inherit the current user name
+  #TODO: Refactor this to inherit the current user names
   NAMES = "Testing", "John Smith"
 
   def self.search(search)

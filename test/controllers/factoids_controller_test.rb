@@ -4,13 +4,7 @@ class FactoidsControllerTest < ActionController::TestCase
   include Devise::TestHelpers
   def setup
     @factoid = factoids(:one)
-    @user = User.create!(
-        :email => 'setup@appfolio.com',
-        :password => 'somethingelse',
-        :password_confirmation => 'somethingelse',
-        :first_name => "Joe",
-        :last_name => "Schmoe",
-    )
+    @user = User.first
     sign_in @user
   end
 

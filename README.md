@@ -7,7 +7,7 @@ What is a factoid you may ask? Well the dictionary defines a factoid as being "*
 ##Purpose
 The main purpose of this app is learning. Nothing here is fully flushed out or in perfect working order. It is meant as a way for me to continue to learn about rails. Some of the things I am focusing on:
 
-* ActiveRecord
+* ActiveRecord & Migrations
 * HAML
 
 ##Technologies/Gems 

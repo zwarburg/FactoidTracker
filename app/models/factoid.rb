@@ -19,9 +19,7 @@ class Factoid < ActiveRecord::Base
 
   acts_as_taggable_on :tags
 
-
-  #TODO: Refactor this to inherit the current user names
-  NAMES = "Testing", "John Smith"
+  NAMES = User.all.collect{|user| user.full_name}
 
   def self.search(search)
     if search

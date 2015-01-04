@@ -22,7 +22,8 @@ end
 
 group :test, :development do
   gem 'test-unit'
-  gem 'rspec-rails', '~> 3.0.0'
+  gem 'rspec-rails', '2.14.0'
+  gem 'shoulda-matchers', '2.5.0'
   gem 'factory_girl_rails'
   gem 'faker'
 end
